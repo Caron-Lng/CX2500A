@@ -8,6 +8,7 @@ import TableOne from "../Tables/TableOne";
 import CardDataStats from "../CardDataStats";
 import TableFour from "../Tables/TableFour";
 import ChartFour from "../Charts/ChartFourRecycle";
+import Analysis from "../Tables/ABTest/Analysis";
 
 const MapOne = dynamic(() => import("@/components/Maps/MapOne"), {
   ssr: false,
@@ -122,6 +123,7 @@ const Overall: React.FC = () => {
         <ChartTwo />
         <ChartFour />
         <ChartThree />
+        <Analysis input={0} />
         {/* <MapOne />
         <div className="col-span-12 xl:col-span-8">
           <TableOne />

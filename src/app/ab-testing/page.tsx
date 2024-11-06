@@ -2,6 +2,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import TableOne from "@/components/Tables/TableOne";
 import ProductDetails from "@/components/Tables/ABTest/TableStorage";
+import Analysis from "@/components/Tables/ABTest/Analysis";
 import TableThree from "@/components/Tables/TableThree";
 import TableTwo from "@/components/Tables/TableTwo";
 
@@ -289,25 +290,24 @@ const TablesPage = () => {
         <div className="w-full p-4"></div>
         <div className="flex w-full flex-row gap-10">
           <div className="flex w-full flex-col gap-10">
-            {productA && <ProductDetails input={productA} />}
-            {/* {productA && <CSM input={productA} mockdata={mockdata} />} */}
-            {/* Render only when productA is set */}
+            {productA && <ProductDetails input={productA} />}{" "}
             <CardDataStats
               title="Total views"
               total="$3.456K"
               rate="0.43%"
               levelUp
             ></CardDataStats>
+            {productA && <Analysis input={productA.id} />}{" "}
           </div>
           <div className="flex w-full flex-col gap-10">
             {productB && <ProductDetails input={productB} />}{" "}
-            {/* Render only when productA is set */}
             <CardDataStats
               title="Total views"
               total="$3.456K"
               rate="0.43%"
               levelUp
             ></CardDataStats>
+            {productA && <Analysis input={productA.id} />}{" "}
           </div>
         </div>
       </div>
