@@ -14,6 +14,26 @@ import DropdownButton from "@/components/Dropdowns/DropdownBotton";
 import { Product } from "@/types/product";
 import { use, useEffect, useState } from "react";
 
+const FromData = [
+  { name: "HKG", value: "HKG" },
+  { name: "SIN", value: "SIN" },
+  { name: "TPE", value: "TPE" },
+  { name: "ICN", value: "ICN" },
+  { name: "NRT", value: "NRT" },
+  { name: "PEK", value: "PEK" },
+  { name: "PVG", value: "PVG" },
+];
+
+const ToData = [
+  { name: "HKG", value: "HKG" },
+  { name: "SIN", value: "SIN" },
+  { name: "TPE", value: "TPE" },
+  { name: "ICN", value: "ICN" },
+  { name: "NRT", value: "NRT" },
+  { name: "PEK", value: "PEK" },
+  { name: "PVG", value: "PVG" },
+];
+
 const FlightData = [
   {
     name: "B320",
@@ -230,57 +250,65 @@ const TablesPage = () => {
   }, [productB]);
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="AB-testing" />
-      <div className="flex flex-row gap-10">
-        <DropdownButton
-          input={productData}
-          onClick={handleProductAChange}
-          placeholder="Product A"
-        />
-        <DropdownButton
-          input={productData}
-          onClick={handleProductBChange}
-          placeholder="Product B"
-        />
-        <DropdownButton
-          input={SeasonData}
-          onClick={() => {}}
-          placeholder="Season"
-        />
-        <DropdownButton
-          input={FlightData}
-          onClick={() => {}}
-          placeholder="Flight "
-        />
+      <div className="mx-0 ">
+        <Breadcrumb pageName="AB-testing" />
+        <div className="flex flex-col gap-10 xsm:gap-2 md:flex-row">
+          <DropdownButton
+            input={productData}
+            onClick={handleProductAChange}
+            placeholder="Product A"
+          />
+          <DropdownButton
+            input={productData}
+            onClick={handleProductBChange}
+            placeholder="Product B"
+          />
+          <DropdownButton
+            input={SeasonData}
+            onClick={() => {}}
+            placeholder="Season"
+          />
+          <DropdownButton
+            input={FlightData}
+            onClick={() => {}}
+            placeholder="Flight "
+          />
 
-        <DropdownButton
-          input={RateData}
-          onClick={() => {}}
-          placeholder="Customer Rate"
-        />
-      </div>
-      <div className="w-full p-4"></div>
-      <div className="flex w-full flex-row gap-10">
-        <div className="flex w-full flex-col gap-10">
-          {productA && <ProductDetails input={productA} />}{" "}
-          {/* {productA && <CSM input={productA} mockdata={mockdata} />} */}
-          {/* Render only when productA is set */}
-          <CardDataStats
-            title="Total views"
-            total="$3.456K"
-            rate="0.43%"
-            levelUp
-          ></CardDataStats>
+          <DropdownButton
+            input={RateData}
+            onClick={() => {}}
+            placeholder="Customer Rate"
+          />
+          <DropdownButton
+            input={FromData}
+            onClick={() => {}}
+            placeholder="From"
+          />
+          <DropdownButton input={ToData} onClick={() => {}} placeholder="To" />
         </div>
-        <div className="flex w-full flex-col gap-10">
-          {productB && <ProductDetails input={productB} />}{" "}
-          {/* Render only when productA is set */}
-          <CardDataStats
-            title="Total views"
-            total="$3.456K"
-            rate="0.43%"
-            levelUp
-          ></CardDataStats>
+        <div className="w-full p-4"></div>
+        <div className="flex w-full flex-row gap-10">
+          <div className="flex w-full flex-col gap-10">
+            {productA && <ProductDetails input={productA} />}
+            {/* {productA && <CSM input={productA} mockdata={mockdata} />} */}
+            {/* Render only when productA is set */}
+            <CardDataStats
+              title="Total views"
+              total="$3.456K"
+              rate="0.43%"
+              levelUp
+            ></CardDataStats>
+          </div>
+          <div className="flex w-full flex-col gap-10">
+            {productB && <ProductDetails input={productB} />}{" "}
+            {/* Render only when productA is set */}
+            <CardDataStats
+              title="Total views"
+              total="$3.456K"
+              rate="0.43%"
+              levelUp
+            ></CardDataStats>
+          </div>
         </div>
       </div>
     </DefaultLayout>
