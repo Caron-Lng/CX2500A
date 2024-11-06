@@ -307,7 +307,7 @@ const TablesPage = () => {
               rate="0.43%"
               levelUp
             ></CardDataStats>
-            {productA && <Analysis input={productA.id} />}{" "}
+            {productB && <Analysis input={productB.id} />}{" "}
           </div>
         </div>
       </div>

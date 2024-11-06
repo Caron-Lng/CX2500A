@@ -123,7 +123,7 @@ const Overall: React.FC = () => {
         <ChartTwo />
         <ChartFour />
         <ChartThree />
-        <Analysis input={0} />
+        <Analysis input={0} dashboard={true} />
         {/* <MapOne />
         <div className="col-span-12 xl:col-span-8">
           <TableOne />

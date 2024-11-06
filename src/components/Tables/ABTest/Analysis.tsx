@@ -143,7 +143,7 @@ const AnalysisData = [
   },
 ];
 
-const Analysis = ({ input, dashboard }: Props) => {
+const Analysis = ({ input, dashboard = false }: Props) => {
   const [data, setData] = useState(AnalysisData[input]);
 
   useEffect(() => {
@@ -165,11 +165,13 @@ const Analysis = ({ input, dashboard }: Props) => {
   );
 
   return (
-    <div className=" flex w-full rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div
+      className={` w-full rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ${dashboard ? " col-span-7 h-125 grid-cols-7 overflow-scroll overflow-x-hidden" : ""}`}
+    >
       {/* Header */}
       <div className="px-4 py-6 md:px-6 xl:px-7.5">
         <h3 className="text-xl font-semibold text-black dark:text-white">
-          Analysis
+          {dashboard ? "Current Status" : "Analysis"}
         </h3>
       </div>
 
@@ -179,7 +181,7 @@ const Analysis = ({ input, dashboard }: Props) => {
           Business Perspective
         </h4>
 
-        {renderSection("Cost per Available Seat Mile", "$/mile", data.CSRM)}
+        {renderSection("Cost per Available Seat Mile", "$/mile", data.weight)}
         {renderSection("Handling & Disposal Cost", "HKD/Tonnes", data.weight)}
         {renderSection(
           "Revenue per Available seat mile",
