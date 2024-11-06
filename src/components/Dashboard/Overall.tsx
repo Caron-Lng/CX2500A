@@ -6,6 +6,7 @@ import ChartTwo from "../Charts/ChartTwo";
 import ChatCard from "../Chat/ChatCard";
 import TableOne from "../Tables/TableOne";
 import CardDataStats from "../CardDataStats";
+import TableFour from "../Tables/TableFour";
 
 const MapOne = dynamic(() => import("@/components/Maps/MapOne"), {
   ssr: false,
@@ -114,6 +115,7 @@ const Overall: React.FC = () => {
           <TableOne />
         </div>
         <ChatCard />
+        <TableFour />
       </div>
     </>
   );
