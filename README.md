@@ -13,7 +13,7 @@
 - Data Tracking and predictions
 - Digitalize the whole system for recycling
 
-## Futrue Improvement
+## Future Improvements
 
 - Provide more details and insights
 - Make use of ML to do the Prediction
