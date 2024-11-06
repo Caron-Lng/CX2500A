@@ -169,7 +169,7 @@ const ProductDetails = ({ input }: Props) => {
               </h1>
             </div>
           </div>
-          <div className="col-span-2 hidden items-center justify-between sm:flex">
+          <div className="col-span-2 flex  items-center justify-between">
             <div className="col-span-2 flex items-center">
               <h1 className="font-bold">Product Type</h1>
             </div>
@@ -177,11 +177,11 @@ const ProductDetails = ({ input }: Props) => {
               {products.category}
             </p>
           </div>
-          <div className="col-span-2 hidden items-center justify-between sm:flex">
+          <div className="col-span-2 flex  items-center justify-between">
             <div className="col-span-2 flex items-center">
               <p className="font-medium">Supplier</p>
             </div>
-            <p className=" font-extrabold text-black dark:text-white">
+            <p className=" flex font-extrabold text-black dark:text-white">
               {products.supplier}
             </p>
           </div>
@@ -194,7 +194,7 @@ const ProductDetails = ({ input }: Props) => {
           </div>
         </div>
         <div className="flex-col">
-          <div className="hidden flex-col justify-between sm:flex">
+          <div className="flex  flex-col justify-between">
             {Object.entries(products.component).map(([key, value]) => (
               <div
                 className=" flex flex-row justify-between text-lg text-black dark:text-white"
@@ -208,7 +208,7 @@ const ProductDetails = ({ input }: Props) => {
         </div>
       </div>
       <div className="grid-cols grid border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-1 md:px-6 2xl:px-7.5">
-        <div className="col-span-2 hidden items-center justify-between sm:flex">
+        <div className="col-span-2  flex items-center justify-between">
           <div className="col-span-2 flex items-center">
             <p className="font-bold">Weight</p>
           </div>

@@ -32,15 +32,16 @@ const DropdownButton = ({
       <Link
         onClick={() => setDropdownOpen(!dropdownOpen)}
         // className="border-1 flex items-center gap-4  border-cyan-950"
-        className="inline-flex items-center justify-center rounded-md border border-meta-3 px-10 py-4 text-center font-medium text-meta-3 hover:bg-opacity-90 lg:px-8 xl:px-10"
+        className="inline-flex items-center justify-center rounded-md border border-meta-3 px-10 py-4 text-center font-medium text-meta-3 hover:bg-opacity-90 xsm:h-12 xsm:w-full xsm:p-2 md:min-w-fit  lg:px-8 xl:px-10"
         href="#"
       >
-        <span className="border-1 hidden border-cyan-950 text-right lg:block">
-          <span className="block pr-3 text-sm font-medium text-black dark:text-white">
-            {dropdownShow}
-          </span>
+        {/* <span className="border-1 hidden border-cyan-950 text-right lg:block"> */}
+        <span className="block pr-3 text-sm font-medium text-black dark:text-white xsm:block">
+          {dropdownShow}
         </span>
+        {/* </span> */}
 
+        {/* {dropdownShow} */}
         <svg
           className="hidden fill-current sm:block"
           width="12"
