@@ -2,48 +2,48 @@ import { BRAND } from "@/types/brand";
 import Image from "next/image";
 
 // Define a new type for food items
-type FoodItem = {
+type procurementItems = {
   name: string;
   quantity: number;
 };
 
-const foodItemsData: FoodItem[] = [
+const procurementItemsData: procurementItems[] = [
   {
-    name: "French Toast",
-    quantity: 20,
+    name: "Sanitizing Wipes",
+    quantity: 200,
   },
   {
-    name: "Street Food Combo",
-    quantity: 20,
+    name: "Inflight Magazine",
+    quantity: 300,
   },
   {
-    name: "Sweet Red Bean Soup",
-    quantity: 13,
+    name: "Blankets",
+    quantity: 50,
   },
   {
 
-    name: "Fish Siu Mai",
-    quantity: 9,
+    name: "Earplugs",
+    quantity: 70,
   },
   {
-    name: "Curry Fish Ball",
-    quantity: 30,
-  },
-  {
-    name: "Classic Sweet Red Bean Soup",
+    name: "Single Luggage Strap",
     quantity: 3,
   },
   {
-    name: "Soup Bursting Pan-fried Pork Bun",
+    name: "Aircraft Model",
+    quantity: 3,
+  },
+  {
+    name: "Luggage Tag",
     quantity: 7,
   },
 ];
 
-const CateringOne = () => {
+const ProcurementOne = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 ">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-      Estimated Food Quantity 
+      Estimated Procurement Item Quantity 
       </h4>
 
       <div className="flex flex-col">
@@ -60,10 +60,10 @@ const CateringOne = () => {
           </div>
         </div>
 
-        {foodItemsData.map((food, key) => (
+        {procurementItemsData.map((item, key) => (
           <div
             className={`grid grid-cols-3 sm:grid-cols-2 ${
-              key === foodItemsData.length - 1
+              key === procurementItemsData.length - 1
                 ? ""
                 : "border-b border-stroke dark:border-strokedark"
             }`}
@@ -72,12 +72,12 @@ const CateringOne = () => {
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
               
               <p className="hidden text-black dark:text-white sm:block">
-                {food.name}
+                {item.name}
               </p>
             </div>
 
             <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className="text-black dark:text-white">{food.quantity}</p>
+              <p className="text-black dark:text-white">{item.quantity}</p>
             </div>
           </div>
         ))}
@@ -86,4 +86,4 @@ const CateringOne = () => {
   );
 };
 
-export default CateringOne;
+export default ProcurementOne;

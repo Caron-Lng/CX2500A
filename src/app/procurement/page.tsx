@@ -1,6 +1,6 @@
 import CateringBreadcrumb from "@/components/Breadcrumbs/CateringBreadcrumb";
-import CateringOne from "@/components/Tables/CateringOne";
-import CateringTwo from "@/components/Tables/CateringTwo";
+import ProcurementOne from "@/components/Tables/ProcurementOne";
+import ProcurementTwo from "@/components/Tables/ProcurementTwo";
 
 
 import { Metadata } from "next";
@@ -26,10 +26,10 @@ const TablesPage = () => {
       <div className="flex gap-10">
         {/* Set a width for each table to ensure they fit side by side */}
         <div className="flex-1">
-          <CateringOne/ >
+          <ProcurementOne/ >
         </div>
         <div className="flex-1">
-          <CateringTwo /> 
+          <ProcurementTwo /> 
         </div>
       </div>
 
