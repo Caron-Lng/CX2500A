@@ -21,7 +21,6 @@ const procurementItemsData: procurementItems[] = [
     quantity: 50,
   },
   {
-
     name: "Earplugs",
     quantity: 70,
   },
@@ -43,11 +42,11 @@ const ProcurementOne = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 ">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-      Estimated Procurement Item Quantity 
+        Estimated Procurement Item Quantity
       </h4>
 
       <div className="flex flex-col">
-        <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-2">
+        <div className="grid grid-cols-2 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-2">
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Item
@@ -62,7 +61,7 @@ const ProcurementOne = () => {
 
         {procurementItemsData.map((item, key) => (
           <div
-            className={`grid grid-cols-3 sm:grid-cols-2 ${
+            className={`grid grid-cols-2 sm:grid-cols-2 ${
               key === procurementItemsData.length - 1
                 ? ""
                 : "border-b border-stroke dark:border-strokedark"
@@ -70,8 +69,7 @@ const ProcurementOne = () => {
             key={key}
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              
-              <p className="hidden text-black dark:text-white sm:block">
+              <p className=" text-black dark:text-white sm:block">
                 {item.name}
               </p>
             </div>
