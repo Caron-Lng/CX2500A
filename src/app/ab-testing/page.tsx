@@ -88,7 +88,7 @@ const productData: Product[] = [
     id: 1,
   },
   {
-    image: "/images/product/product-02.jpg",
+    image: "/images/product/product-01.jpg",
     name: "Product A",
     category: "Others",
     amount: 546,
@@ -105,7 +105,7 @@ const productData: Product[] = [
     id: 2,
   },
   {
-    image: "/images/product/product-03.jpg",
+    image: "/images/product/product-01.jpg",
     name: "Product A",
     category: "Paper",
     amount: 43,
@@ -156,7 +156,7 @@ const productData: Product[] = [
     id: 5,
   },
   {
-    image: "/images/product/product-04.jpg",
+    image: "/images/product/product-05.jpg",
     name: "Product C",
     category: "Paper",
     amount: 499,
@@ -173,7 +173,7 @@ const productData: Product[] = [
     id: 6,
   },
   {
-    image: "/images/product/product-04.jpg",
+    image: "/images/product/product-05.jpg",
     name: "Product C",
     category: "Food",
     amount: 499,
