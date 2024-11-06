@@ -319,6 +319,7 @@ const Analysis = ({
       <div className="px-4 py-6 md:px-6 xl:px-7.5">
         <h3 className="text-xl font-semibold text-black dark:text-white">
           {dashboard ? "Current Status" : "Analysis"}
+          {dashboard ? " : " + score : ""}
         </h3>
       </div>
 
