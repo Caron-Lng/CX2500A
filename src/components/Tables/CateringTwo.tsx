@@ -86,14 +86,14 @@ const CateringTwo = () => {
                 {food.name}
               </p>
             </div>
-            <div className="flex items-center justify-center p-2.5 xl:p-5">
+            <div className="flex items-center justify-center p-2.5 xl:p-5 ">
               <input
                 type="number"
                 value={food.quantity}
                 onChange={(e) =>
                   handleQuantityChange(index, parseInt(e.target.value) || 0)
                 }
-                className="w-16 rounded border border-gray-300 text-center text-black dark:text-white"
+                className="w-16 rounded border border-gray-300 text-center text-black dark:bg-gray-500 dark:text-white"
               />
             </div>
           </div>

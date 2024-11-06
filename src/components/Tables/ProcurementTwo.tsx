@@ -93,7 +93,7 @@ const CateringTwo = () => {
                 onChange={(e) =>
                   handleQuantityChange(index, parseInt(e.target.value) || 0)
                 }
-                className="w-16 rounded border border-gray-300 text-center text-black dark:text-white"
+                className="w-16 rounded border border-gray-300 text-center text-black dark:bg-gray-500 dark:text-white"
               />
             </div>
           </div>

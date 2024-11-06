@@ -216,9 +216,25 @@ const SeasonData = [
 //     "This is Next.js Tables page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
 // };
 
+// const CompareRate = (scoreA: number, scoreB: number) => {
+//   const rate = (scoreA - scoreB) / scoreA;
+//   return rate;
+// };
+
 const TablesPage = () => {
   const [productA, setProductA] = useState<Product | null>(null);
   const [productB, setProductB] = useState<Product | null>(null);
+  const [scoreA, setScoreA] = useState<number | null>(null);
+  const [scoreB, setScoreB] = useState<number | null>(null);
+  const [compareRate, setCompareRate] = useState<number | null>(null);
+  const isScoreAHigher = scoreA !== null && scoreB !== null && scoreA > scoreB;
+  const isScoreBHigher = scoreA !== null && scoreB !== null && scoreB > scoreA;
+
+  // useEffect(() => {
+  //   if (scoreA && scoreB) {
+  //     setCompareRate(CompareRate(scoreA, scoreB));
+  //   }
+  // }, [scoreA, scoreB]);
   const handleProductAChange = (selectedItem: Product) => {
     console.log(selectedItem);
     console.log(productA);
@@ -292,22 +308,36 @@ const TablesPage = () => {
           <div className="flex w-full flex-col gap-10">
             {productA && <ProductDetails input={productA} />}{" "}
             <CardDataStats
-              title="Total views"
-              total="$3.456K"
-              rate="0.43%"
-              levelUp
+              title="Total Score"
+              total={scoreA?.toFixed(2) || "0"}
+              // rate={compareRate?.toFixed(2) || "0"}
+              higher={isScoreAHigher}
             ></CardDataStats>
-            {productA && <Analysis input={productA.id} />}{" "}
+            {productA && (
+              <Analysis
+                input={productA.id}
+                onScoreUpdate={(score) => {
+                  setScoreA(score);
+                }}
+              />
+            )}{" "}
           </div>
           <div className="flex w-full flex-col gap-10">
             {productB && <ProductDetails input={productB} />}{" "}
             <CardDataStats
-              title="Total views"
-              total="$3.456K"
-              rate="0.43%"
-              levelUp
+              title="Total Score"
+              total={scoreB?.toFixed(2) || "0"}
+              // rate={compareRate?.toFixed(2) || "0"}
+              higher={isScoreBHigher}
             ></CardDataStats>
-            {productB && <Analysis input={productB.id} />}{" "}
+            {productB && (
+              <Analysis
+                input={productB.id}
+                onScoreUpdate={(score) => {
+                  setScoreB(score);
+                }}
+              />
+            )}
           </div>
         </div>
       </div>

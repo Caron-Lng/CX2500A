@@ -24,7 +24,7 @@ const DropdownUser = () => {
           <Image
             width={112}
             height={112}
-            src={"/images/user/user-01.png"}
+            src={"/images/logo/EAR_app_logo.png"}
             style={{
               width: "auto",
               height: "auto",
@@ -124,7 +124,7 @@ const DropdownUser = () => {
                     fill=""
                   />
                 </svg>
-                Account Settings
+                Settings
               </Link>
             </li>
           </ul>
