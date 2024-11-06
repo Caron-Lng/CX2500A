@@ -289,7 +289,7 @@ const TablesPage = () => {
         <div className="w-full p-4"></div>
         <div className="flex w-full flex-row gap-10">
           <div className="flex w-full flex-col gap-10">
-            {productA && <ProductDetails input={productA} />}{" "}
+            {productA && <ProductDetails input={productA} />}
             {/* {productA && <CSM input={productA} mockdata={mockdata} />} */}
             {/* Render only when productA is set */}
             <CardDataStats
