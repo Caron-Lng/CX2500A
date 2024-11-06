@@ -49,7 +49,9 @@ const TablesPage = () => {
       </div>
       <div
         className="border-1 m-12 flex flex-col rounded-sm  border border-stroke bg-white p-12 px-5 pb-6 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark xsm:m-1 sm:px-7.5 xl:pb-1 "
-        onClick={() => setFlightTwo(!flightTwo)}
+        onClick={(e) => {
+          setFlightTwo(!flightTwo);
+        }}
       >
         <h1 className="mb-10 text-2xl font-semibold text-gray-800 dark:text-white">
           UO660

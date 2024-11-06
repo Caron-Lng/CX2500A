@@ -52,7 +52,12 @@ const CateringTwo = () => {
   };
 
   return (
-    <div className="rounded-sm border border-stroke bg-white px-5 pb-6 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5">
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+      className="rounded-sm border border-stroke bg-white px-5 pb-6 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5"
+    >
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         Food Quantity
       </h4>
@@ -90,9 +95,10 @@ const CateringTwo = () => {
               <input
                 type="number"
                 value={food.quantity}
-                onChange={(e) =>
-                  handleQuantityChange(index, parseInt(e.target.value) || 0)
-                }
+                onChange={(e) => {
+                  handleQuantityChange(index, parseInt(e.target.value) || 0);
+                  e.stopPropagation();
+                }}
                 className="w-16 rounded border border-gray-300 text-center text-black dark:bg-gray-500 dark:text-white"
               />
             </div>

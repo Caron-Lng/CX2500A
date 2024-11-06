@@ -37,20 +37,20 @@ const ToData = [
 
 const FlightData = [
   {
-    name: "B320",
-    value: "B320",
+    name: "A320",
+    value: "A320",
   },
   {
-    name: "B320N",
+    name: "A320N",
     value: "B320N",
   },
   {
-    name: "B350",
-    value: "B350",
+    name: "A321",
+    value: "A321",
   },
   {
-    name: "B350N",
-    value: "B350N",
+    name: "A321N",
+    value: "A321N",
   },
 ];
 
@@ -316,7 +316,7 @@ const TablesPage = () => {
             {productA && (
               <Analysis
                 input={productA.id}
-                onScoreUpdate={(score) => {
+                onScoreUpdate={(score: any) => {
                   setScoreA(score);
                 }}
               />
@@ -333,7 +333,7 @@ const TablesPage = () => {
             {productB && (
               <Analysis
                 input={productB.id}
-                onScoreUpdate={(score) => {
+                onScoreUpdate={(score: any) => {
                   setScoreB(score);
                 }}
               />
