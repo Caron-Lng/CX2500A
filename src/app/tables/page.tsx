@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import TableOne from "@/components/Tables/TableOne";
-import TableThree from "@/components/Tables/TableThree";
+
+// import TableThree from "@/components/Tables/TableThree";
 import TableTwo from "@/components/Tables/TableTwo";
 
 import { Metadata } from "next";
@@ -15,13 +16,20 @@ export const metadata: Metadata = {
 const TablesPage = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Tables" />
+      <Breadcrumb pageName="Estimated Food Quantity" />
 
-      <div className="flex flex-col gap-10">
-        <TableOne />
-        <TableTwo />
-        <TableThree />
+      {/* Use flex to arrange tables side by side */}
+      <div className="flex gap-10">
+        {/* Set a width for each table to ensure they fit side by side */}
+        <div className="flex-1">
+          <TableOne />
+        </div>
+        <div className="flex-1">
+          <TableTwo /> {/* Render the second table */}
+        </div>
       </div>
+
+      
     </DefaultLayout>
   );
 };
