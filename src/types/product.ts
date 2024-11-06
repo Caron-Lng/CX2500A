@@ -1,8 +1,19 @@
 export type Product = {
+  id: number;
   image: string;
   name: string;
   category: string;
-  price: number;
+  amount: number;
   sold: number;
-  profit: number;
+  weight: number;
+  component: Component;
+  supplier: string;
+  supplyStatus: boolean;
+};
+
+export type Component = {
+  plastic: number;
+  paper: number;
+  glass: number;
+  metal: number;
 };

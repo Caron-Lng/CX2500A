@@ -1,8 +1,6 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import TableOne from "@/components/Tables/TableOne";
-
-// import TableThree from "@/components/Tables/TableThree";
-import TableTwo from "@/components/Tables/TableTwo";
+import CateringBreadcrumb from "@/components/Breadcrumbs/CateringBreadcrumb";
+import ProcurementOne from "@/components/Tables/ProcurementOne";
+import ProcurementTwo from "@/components/Tables/ProcurementTwo";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
@@ -16,20 +14,22 @@ export const metadata: Metadata = {
 const TablesPage = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Estimated Food Quantity" />
+      <CateringBreadcrumb
+        pageName="Flight: UO650"
+        iataCode="HKG-HND"
+        additionalInfo="Departure: 14:00 PM | Arrival: 19:05 PM"
+      />
 
       {/* Use flex to arrange tables side by side */}
-      <div className="flex gap-10">
+      <div className="flex flex-col gap-10 md:flex-row">
         {/* Set a width for each table to ensure they fit side by side */}
         <div className="flex-1">
-          <TableOne />
+          <ProcurementOne />
         </div>
         <div className="flex-1">
-          <TableTwo /> {/* Render the second table */}
+          <ProcurementTwo />
         </div>
       </div>
-
-      
     </DefaultLayout>
   );
 };

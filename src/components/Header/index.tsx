@@ -60,7 +60,7 @@ const Header = (props: {
             <Image
               width={32}
               height={32}
-              src={"/images/logo/logo-icon.svg"}
+              src={"/images/logo/EAR_app_logo.png"}
               alt="Logo"
             />
           </Link>
@@ -113,7 +113,7 @@ const Header = (props: {
             {/* <!-- Notification Menu Area --> */}
 
             {/* <!-- Chat Notification Area --> */}
-            <DropdownMessage />
+            {/* <DropdownMessage /> */}
             {/* <!-- Chat Notification Area --> */}
           </ul>
 
