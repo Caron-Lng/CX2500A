@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -6,50 +5,49 @@ import Link from "next/link";
 
 // Define a new type for food items
 type procurementItems = {
-    name: string;
-    quantity: number;
-  };
-  
-  const procurementItemsData: procurementItems[] = [
-    {
-      name: "Sanitizing Wipes",
-      quantity: 200,
-    },
-    {
-      name: "Inflight Magazine",
-      quantity: 300,
-    },
-    {
-      name: "Blankets",
-      quantity: 50,
-    },
-    {
-  
-      name: "Earplugs",
-      quantity: 70,
-    },
-    {
-      name: "Single Luggage Strap",
-      quantity: 3,
-    },
-    {
-      name: "Aircraft Model",
-      quantity: 3,
-    },
-    {
-      name: "Luggage Tag",
-      quantity: 7,
-    },
-  ];
+  name: string;
+  quantity: number;
+};
+
+const procurementItemsData: procurementItems[] = [
+  {
+    name: "Sanitizing Wipes",
+    quantity: 200,
+  },
+  {
+    name: "Inflight Magazine",
+    quantity: 300,
+  },
+  {
+    name: "Blankets",
+    quantity: 50,
+  },
+  {
+    name: "Earplugs",
+    quantity: 70,
+  },
+  {
+    name: "Single Luggage Strap",
+    quantity: 3,
+  },
+  {
+    name: "Aircraft Model",
+    quantity: 3,
+  },
+  {
+    name: "Luggage Tag",
+    quantity: 7,
+  },
+];
 
 const CateringTwo = () => {
-    // 1. State to track food items data
-    const [procurementItems, setFoodItems] = useState(procurementItemsData);
+  // 1. State to track food items data
+  const [procurementItems, setFoodItems] = useState(procurementItemsData);
 
   // 2. Function to handle quantity changes
-    const handleQuantityChange = (index: number, newQuantity: number) => {
-    const updatedItems = [...procurementItems]; // Copy of the current food items 
-    updatedItems[index].quantity = newQuantity; // Update quantity 
+  const handleQuantityChange = (index: number, newQuantity: number) => {
+    const updatedItems = [...procurementItems]; // Copy of the current food items
+    updatedItems[index].quantity = newQuantity; // Update quantity
     setFoodItems(updatedItems); // Update the state with the new array
   };
 
@@ -61,18 +59,22 @@ const CateringTwo = () => {
 
       {/* Table layout */}
       <div className="flex flex-col">
-        <div className="grid grid-cols-3 bg-gray-2 dark:bg-meta-4 sm:grid-cols-2">
+        <div className="grid grid-cols-2 bg-gray-2 dark:bg-meta-4 sm:grid-cols-2">
           <div className="p-2.5 xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">Item</h5>
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Item
+            </h5>
           </div>
           <div className="p-2.5 text-center xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">Quantity</h5>
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Quantity
+            </h5>
           </div>
         </div>
 
         {procurementItems.map((item, index) => (
           <div
-            className={`grid grid-cols-3 sm:grid-cols-2 ${
+            className={`grid grid-cols-2 sm:grid-cols-2 ${
               index === procurementItems.length - 1
                 ? ""
                 : "border-b border-stroke dark:border-strokedark"
@@ -80,7 +82,7 @@ const CateringTwo = () => {
             key={index}
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              <p className="hidden text-black dark:text-white sm:block">
+              <p className=" text-black dark:text-white sm:block">
                 {item.name}
               </p>
             </div>
@@ -91,7 +93,7 @@ const CateringTwo = () => {
                 onChange={(e) =>
                   handleQuantityChange(index, parseInt(e.target.value) || 0)
                 }
-                className="w-16 text-center text-black dark:text-white border border-gray-300 rounded"
+                className="w-16 rounded border border-gray-300 text-center text-black dark:text-white"
               />
             </div>
           </div>
@@ -99,7 +101,7 @@ const CateringTwo = () => {
       </div>
 
       {/* Confirm button at the bottom right */}
-      <div className="flex justify-end mt-4">
+      <div className="mt-4 flex justify-end">
         <Link
           href="#"
           className="inline-flex items-center justify-center bg-primary px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"

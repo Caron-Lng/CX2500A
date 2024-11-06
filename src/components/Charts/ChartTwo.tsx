@@ -1,72 +1,38 @@
 "use client";
 
 import { ApexOptions } from "apexcharts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-const options: ApexOptions = {
-  colors: ["#3C50E0", "#80CAEE"],
-  chart: {
-    fontFamily: "Satoshi, sans-serif",
-    type: "bar",
-    height: 335,
-    stacked: true,
-    toolbar: {
-      show: false,
-    },
-    zoom: {
-      enabled: false,
-    },
+const QuaterSeries = [
+  {
+    name: "Recyclable Waste",
+    data: [44, 55, 41, 67],
   },
+  {
+    name: "Other Waste",
+    data: [13, 23, 20, 8],
+  },
+];
 
-  responsive: [
-    {
-      breakpoint: 1536,
-      options: {
-        plotOptions: {
-          bar: {
-            borderRadius: 0,
-            columnWidth: "25%",
-          },
-        },
-      },
-    },
-  ],
-  plotOptions: {
-    bar: {
-      horizontal: false,
-      borderRadius: 0,
-      columnWidth: "25%",
-      borderRadiusApplication: "end",
-      borderRadiusWhenStacked: "last",
-    },
+const YearlySeries = [
+  {
+    name: "Recyclable Waste",
+    data: [200, 350, 400, 450],
   },
-  dataLabels: {
-    enabled: false,
+  {
+    name: "Other Waste",
+    data: [250, 200, 220, 100],
   },
+];
 
-  xaxis: {
-    categories: ["M", "T", "W", "T", "F", "S", "S"],
-  },
-  legend: {
-    position: "top",
-    horizontalAlign: "left",
-    fontFamily: "Satoshi",
-    fontWeight: 500,
-    fontSize: "14px",
+const QuarterlyCategory = ["Q1", "Q2", "Q3", "Q4"];
 
-    markers: {
-      radius: 99,
-    },
-  },
-  fill: {
-    opacity: 1,
-  },
-};
+const YearlyCategory = ["2019", "2020", "2021", "2022"];
 
 interface ChartTwoState {
   series: {
@@ -76,16 +42,161 @@ interface ChartTwoState {
 }
 
 const ChartTwo: React.FC = () => {
-  const series = [
-    {
-      name: "Recyclable Waste",
-      data: [44, 55, 41, 67, 22, 43, 65],
+  const [selectedPeriod, setSelectedPeriod] = useState("This Quarter");
+  const [useCategories, setCategories] = useState(QuarterlyCategory);
+
+  const [series, setSeries] = useState(QuaterSeries);
+  // const series = [
+  //   {
+  //     name: "Recyclable Waste",
+  //     data: [44, 55, 41, 67, 22, 43, 65],
+  //   },
+  //   {
+  //     name: "Food Waste",
+  //     data: [13, 23, 20, 8, 13, 27, 15],
+  //   },
+  // ];
+  const [options, setOptions] = useState<ApexOptions>({
+    colors: ["#3C50E0", "#80CAEE"],
+    chart: {
+      fontFamily: "Satoshi, sans-serif",
+      type: "bar",
+      height: 335,
+      stacked: true,
+      toolbar: {
+        show: false,
+      },
+      zoom: {
+        enabled: false,
+      },
     },
-    {
-      name: "Food Waste",
-      data: [13, 23, 20, 8, 13, 27, 15],
+    responsive: [
+      {
+        breakpoint: 1536,
+        options: {
+          plotOptions: {
+            bar: {
+              borderRadius: 0,
+              columnWidth: "25%",
+            },
+          },
+        },
+      },
+    ],
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        borderRadius: 0,
+        columnWidth: "25%",
+        borderRadiusApplication: "end",
+        borderRadiusWhenStacked: "last",
+      },
     },
-  ];
+    dataLabels: {
+      enabled: false,
+    },
+    xaxis: {
+      categories: useCategories,
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+      fontFamily: "Satoshi",
+      fontWeight: 500,
+      fontSize: "14px",
+      // markers: {
+      //   radius: 99,
+      // },
+    },
+    fill: {
+      opacity: 1,
+    },
+  });
+
+  useEffect(() => {
+    setOptions((prevOptions) => ({
+      ...prevOptions,
+      xaxis: {
+        ...prevOptions.xaxis,
+        categories: useCategories,
+      },
+    }));
+  }, [useCategories]);
+
+  const handlePeriodChange = (period: string) => {
+    setSelectedPeriod(period);
+    switch (period) {
+      case "This Quarter":
+        setSeries(QuaterSeries);
+        setCategories(QuarterlyCategory);
+        break;
+      case "This Year":
+        setSeries(YearlySeries);
+        setCategories(YearlyCategory);
+        break;
+      default:
+        break;
+    }
+  };
+  // const options: ApexOptions = {
+  //   colors: ["#3C50E0", "#80CAEE"],
+  //   chart: {
+  //     fontFamily: "Satoshi, sans-serif",
+  //     type: "bar",
+  //     height: 335,
+  //     stacked: true,
+  //     toolbar: {
+  //       show: false,
+  //     },
+  //     zoom: {
+  //       enabled: false,
+  //     },
+  //   },
+
+  //   responsive: [
+  //     {
+  //       breakpoint: 1536,
+  //       options: {
+  //         plotOptions: {
+  //           bar: {
+  //             borderRadius: 0,
+  //             columnWidth: "25%",
+  //           },
+  //         },
+  //       },
+  //     },
+  //   ],
+  //   plotOptions: {
+  //     bar: {
+  //       horizontal: false,
+  //       borderRadius: 0,
+  //       columnWidth: "25%",
+  //       borderRadiusApplication: "end",
+  //       borderRadiusWhenStacked: "last",
+  //     },
+  //   },
+  //   dataLabels: {
+  //     enabled: false,
+  //   },
+
+  //   xaxis: {
+  //     categories: useCategories,
+  //   },
+  //   legend: {
+  //     position: "top",
+  //     horizontalAlign: "left",
+  //     fontFamily: "Satoshi",
+  //     fontWeight: 500,
+  //     fontSize: "14px",
+
+  //     markers: {
+  //       radius: 99,
+  //     },
+  //   },
+  //   fill: {
+  //     opacity: 1,
+  //   },
+  // };
 
   return (
     <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
@@ -100,13 +211,30 @@ const ChartTwo: React.FC = () => {
             <select
               name="#"
               id="#"
+              onChange={(e) => handlePeriodChange(e.target.value)}
               className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
             >
-              <option value="" className="dark:bg-boxdark">
-                This Week
+              <option
+                value="This Quarter"
+                className="dark:bg-boxdark"
+                // onClick={() => {
+                //   setSelectedPeriod("This Quarter");
+                //   setCategories(QuarterlyCategory);
+                //   setSeries(QuaterSeries);
+                // }}
+              >
+                This Quarter
               </option>
-              <option value="" className="dark:bg-boxdark">
-                Last Week
+              <option
+                value="This Year"
+                className="dark:bg-boxdark"
+                // onClick={() => {
+                //   setSelectedPeriod("This Year");
+                //   setCategories(YearlyCategory);
+                //   setSeries(YearlySeries);
+                // }}
+              >
+                This Year
               </option>
             </select>
             <span className="absolute right-3 top-1/2 z-10 -translate-y-1/2">
